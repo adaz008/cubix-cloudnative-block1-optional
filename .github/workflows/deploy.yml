@@ -14,7 +14,7 @@ on:
 jobs:
   test:
     uses: ./.github/workflows/integration-test.yml
-    
+
     permissions:
       contents: read
       packages: write
