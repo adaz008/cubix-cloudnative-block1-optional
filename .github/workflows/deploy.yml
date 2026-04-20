@@ -1,10 +1,10 @@
-name: Integration test on PR
+name: Integration test and Docker publish
 
 on:
   push:
     branches:
     - main
-    - 
+    - 'ci/**'
   pull_request:
     branches:
       - main
@@ -13,9 +13,11 @@ on:
 
 jobs:
   test:
-    name: "Run integration tests"
-    steps:
-      - uses: ./.github/workflows/integration-test.yml
+    uses: ./.github/workflows/integration-test.yml
+    
+    permissions:
+      contents: read
+      packages: write
 
   build:
     name: "Build the application"
